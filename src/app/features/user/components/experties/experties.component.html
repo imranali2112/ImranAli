@@ -1,0 +1,37 @@
+<div class="pt-10 pb-10" style="background-color: #f0f1f3;"> <!-- Added padding-top and padding-bottom to handle the spacing -->
+    <h1 class="text-center text-3xl lg:text-5xl font-bold">Services</h1>
+    <div class="pt-10 pb-10" style="background-color: #f0f1f3;">
+        <div class="md:ms-10 md:me-10 lg:ms-0 lg:me-0 lg:flex justify-between max-w-7xl mx-auto px-4 gap-15 mt-10">
+      
+          <!-- Left Block -->
+          <div *ngIf="service1() as s1" class="lg:w-[45%] m-auto items-center">
+            <h2 class="text-2xl lg:text-4xl font-bold"> {{ s1.title }}</h2>
+            <p class="mt-3">{{ s1.description }}</p>
+          </div>
+      
+          <!-- Right Block -->
+          <div class="lg:w-[43%] flex flex-col gap-y-5 mt-10 lg:mt-0">
+            <div *ngIf="service2() as s2" class="bg-white rounded px-5 py-6 border-l-[5px] border-l-purple-500">
+              <h2 class="text-xl lg:text-2xl font-medium">{{ s2.title }}</h2>
+              <p>{{ s2.description }}</p>
+            </div>
+      
+            <div *ngIf="service3() as s3" class="bg-white rounded px-5 py-6">
+              <h2 class="text-xl lg:text-2xl font-medium">{{ s3.title }}</h2>
+              <p>{{ s3.description }}</p>
+            </div>
+      
+            <div *ngIf="service4() as s4" class="bg-white rounded px-5 py-6">
+              <h2 class="text-xl lg:text-2xl font-medium">{{ s4.title }}</h2>
+              <p>{{ s4.description }}</p>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      
+</div>
+
+ 
+  
+  

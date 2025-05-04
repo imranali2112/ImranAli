@@ -1,0 +1,63 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-10">
+    <div class="shadow-2xl w-full sm:w-[80%] lg:w-[60%] bg-white p-6 rounded-lg">
+        <form [formGroup]="aboutForm" (ngSubmit)="onSubmit()" class="space-y-6">
+            <h2 class="text-2xl text-center font-medium">Add About</h2>
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Enter your name</mat-label>
+                    <input matInput placeholder="Name" formControlName="name">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-hint>Enter your full name</mat-hint>
+                </mat-form-field>
+            </div>
+ 
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput  matInput rows="6" cols="50" formControlName="description"></textarea>
+                    <mat-icon matSuffix>description</mat-icon>  
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Enter Years of experience</mat-label>
+                    <input matInput type="number" formControlName="experience" placeholder="Experience" min="1" step="1">
+                    <mat-icon matSuffix>work</mat-icon>
+                    <mat-hint>Enter only numbers</mat-hint>
+                </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Number of projects</mat-label>
+                    <input matInput type="number" formControlName="projects" placeholder="Projects" min="1" step="1">
+                    <mat-icon matSuffix>assignment</mat-icon>
+                    <mat-hint>Enter only numbers</mat-hint>
+                </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Number of clients</mat-label>
+                    <input matInput type="number" formControlName="clients" placeholder="Clients" min="1" step="1">
+                    <mat-icon matSuffix>business</mat-icon>
+                    <mat-hint>Enter only numbers</mat-hint>
+                </mat-form-field>
+            </div>
+            
+            <div class="">
+                <label class="block mb-2 text-medium font-medium text-gray-700">Upload Profile Image</label>
+                <input formControlName="imageUrl" type="file" (change)="onFileSelected($event)" accept="image/*"
+                    class="block w-full text-sm text-gray-700 border outline h-12 items-center border-gray-300 bg-gray-300 border-t border-l border-r rounded-t-sm cursor-pointer" />
+            </div>
+
+            <div class="">
+                <button mat-raised-button type="submit"
+                    class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div [ngClass]="dynamicMargin" [ngStyle]="{ 'width': dynamicWidth }"
+    class="h-20 top-0 shadow bg-white flex items-center px-6">
+
+    <div class="w-full flex justify-between   items-center space-x-6">
+        <div>
+            <h1 class="text-xl font-medium">Admin Dashboard</h1>
+        </div>
+        <div class=" flex justify-center items-center space-x-6">
+            <div>
+                <i class="bi bi-bell text-xl"></i>
+            </div>
+    
+            <!-- Profile Dropdown -->
+            <div class="relative">
+                <img src="assets/images/selfi.jpeg" alt="profile" class="w-12 h-12 rounded-full object-cover cursor-pointer"
+                    (click)="toggleMenu()" />
+    
+                <!-- Dropdown Menu -->
+                @if (isMenuOpen) {
+                <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+                    <ul class="py-2">
+                        @for (option of profileOpation; track option) {
+                        <li>
+                            <a [routerLink]="option.route" (click)="closeMenu()"
+                                class="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-700">
+                                <i class="material-icons text-sm mr-2">{{ option.icon }}</i>
+                                <span>{{ option.label }}</span>
+                            </a>
+                        </li>
+                        }
+                    </ul>
+                </div>
+                }
+            </div>    
+        </div>
+    </div>
+</div>

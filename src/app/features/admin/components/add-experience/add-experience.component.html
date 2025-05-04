@@ -1,0 +1,52 @@
+<div class="  flex   justify-center bg-gray-50 px-4 py-10">
+    <div class="w-full sm:w-[80%] lg:w-[60%] shadow-2xl rounded bg-white p-6 py-10">
+        <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()" class="space-y-5">
+            <h2 class="text-2xl text-center font-medium">Add Experience</h2>
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Enter the title</mat-label>
+                    <input matInput formControlName="title" placeholder="Title">
+                    <mat-icon matSuffix>title</mat-icon>
+                    <mat-hint>Enter the title</mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Enter the experience Description</mat-label>
+                    <textarea matInput formControlName="description"  matInput rows="6" cols="50"></textarea>
+                    <mat-icon matSuffix>Experience</mat-icon>  
+                </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field class="w-full">
+                    <mat-label>Choose a start date</mat-label>
+                    <input matInput formControlName="startDate" [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="w-full">
+                    <mat-label>Choose a end date</mat-label>
+                    <input matInput formControlName="endDate" [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+
+            <div class="">
+                <button mat-raised-button
+                    class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

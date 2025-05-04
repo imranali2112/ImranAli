@@ -1,0 +1,29 @@
+<div class="  flex   justify-center bg-gray-50 px-4 py-10">
+    <div class="w-full sm:w-[80%] lg:w-[60%] shadow-2xl rounded bg-white p-6 py-10">
+        <form class="space-y-5">
+            <h2 class="text-2xl text-center font-medium">Add Skill</h2>
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Enter the skill title</mat-label>
+                    <input matInput placeholder="Skill">
+                    <mat-icon matSuffix>title</mat-icon>
+                    <mat-hint>Enter the skill title</mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <label class="block mb-2 text-medium font-medium text-gray-700">skill logo</label>
+                <input type="file" accept="image/*"
+                    class="block w-full text-sm text-gray-700 border outline h-12 items-center border-gray-300 bg-gray-300 border-t border-l border-r rounded-t-sm cursor-pointer" />
+            </div>
+
+            <div class="">
+                <button mat-raised-button
+                    class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

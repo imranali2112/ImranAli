@@ -1,0 +1,21 @@
+<div class="">
+  <div class="max-w-7xl mx-auto px-4 lg:mb-20 mt-10 mb-10 lg:mt-15">
+    <h1 class="text-3xl lg:text-5xl font-bold text-center">Experience</h1>
+    @for(display of experiences; track display){
+    <div class="flex flex-col lg:flex-row gap-4 lg:gap-12 mt-8 lg:mt-15">
+
+      <div class="order-1 lg:order-1 lg:ms-5 w-full lg:w-[20%]">
+        <h2 class="text-lg font-medium">{{ display.title }}</h2>
+      </div>
+
+      <div class="order-3 lg:order-2 w-full lg:w-[60%]">
+        <p>{{ display.description }}</p>
+      </div>
+
+      <div class="order-2 lg:order-3 w-full lg:w-[20%]">
+        <p class=" lg:text-lg font-medium">{{ display.startDate | date: 'MMMM yyyy'}} to {{ display.endDate | date: 'MMMM yyyy'}}</p>
+      </div>
+    </div>
+    }
+  </div>
+</div>

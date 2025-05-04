@@ -1,0 +1,107 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-10">
+    <div class="shadow-2xl w-full sm:w-[80%] lg:w-[60%] bg-white p-6 rounded-lg">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="space-y-6">
+            <h2 class="text-2xl text-center font-medium">Add Personal Information</h2>
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Enter your name</mat-label>
+                    <input matInput placeholder="Name" formControlName="name">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-hint>Enter your full name</mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Email</mat-label>
+                    <input type="email" formControlName="email" matInput placeholder="Ex. pat@example.com">
+                    <mat-icon matSuffix>mail</mat-icon>
+                    <mat-hint>Errors appear instantly!</mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Contact Number</mat-label>
+                    <input matInput type="tel" formControlName="contactNumber" laceholder="+92 300 1234567" formControlName="contactNumber"
+                        maxlength="15">
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-hint>Enter your phone number</mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"  matInput rows="6" cols="50"></textarea>
+                    <mat-icon matSuffix>description</mat-icon>  
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>LinkedIn Profile URL</mat-label>
+                    <input matInput type="url" formControlName="linkdIn" placeholder="https://www.linkedin.com/in/username"
+                        formControlName="linkdIn">
+                    <mat-icon matSuffix>link</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Fiverr Profile URL</mat-label>
+                    <input matInput type="url" formControlName="fiverr" placeholder="https://www.fiverr.com/in/username"
+                        formControlName="fiverr">
+                    <mat-icon matSuffix>link</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Github Profile URL</mat-label>
+                    <input matInput type="url" formControlName="github" placeholder="https://www.github.com/in/username"
+                        formControlName="github">
+                    <mat-icon matSuffix>link</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Instagram Profile URL</mat-label>
+                    <input matInput type="url" formControlName="instagram" placeholder="https://www.instagram.com/in/username"
+                        formControlName="instagram">
+                    <mat-icon matSuffix>link</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Facebook Profile URL</mat-label>
+                    <input matInput type="url" formControlName="facebook" placeholder="https://www.facebook.com/in/username"
+                        formControlName="facebook">
+                    <mat-icon matSuffix>link</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="">
+                <label class="block mb-2 text-medium font-medium text-gray-700">Upload CV(PDF) only</label>
+                <input formControlName="CV" (change)="onFileSelected($event)" type="file" accept="application/pdf" 
+                    class="block w-full text-sm text-gray-700 outline h-12 items-center border-gray-300 bg-gray-300 border-t border-b border-0 rounded-t-sm cursor-pointer" />
+            </div>
+            
+
+            <div class="">
+                <label class="block mb-2 text-medium font-medium text-gray-700">Upload Profile Image</label>
+                <input formControlName="image" type="file" accept="image/*"
+                    class="block w-full text-sm text-gray-700 border outline h-12 items-center border-gray-300 bg-gray-300 border-t border-l border-r rounded-t-sm cursor-pointer" />
+            </div>
+
+            <div class="">
+                <button type="submit" mat-raised-button
+                    class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
