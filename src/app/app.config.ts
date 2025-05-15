@@ -9,6 +9,17 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
+    provideAnimationsAsync(),
+    provideRouter(routes),
+    providePrimeNG({
+        theme: {
+            preset: Aura
+        }
+    }),
+    provideAnimationsAsync(),
+    importProvidersFrom(NgxSpinnerModule.forRoot({ type: 'ball-clip-rotate' })),
+
     provideAuth(() => getAuth())
     
   ]
