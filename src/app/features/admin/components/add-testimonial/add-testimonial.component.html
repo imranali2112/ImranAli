@@ -1,49 +1,81 @@
-<div class="  flex   justify-center bg-gray-50 px-4 py-10">
-    <div class="w-full sm:w-[80%] lg:w-[60%] shadow-2xl rounded bg-white p-6 py-10">
-        <form class="space-y-5">
-            <h2 class="text-2xl text-center font-medium">Add Testimonial</h2>
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Enter testimonial title</mat-label>
-                    <input matInput placeholder="Title">
-                    <mat-icon matSuffix>title</mat-icon>
-                    <mat-hint>Enter testimonial title</mat-hint>
-                </mat-form-field>
-            </div>
+<mat-tab-group class="mt-20">
+    <mat-tab label="Add Testimonial">
+        <div class="  flex   justify-center bg-gray-50 px-4 py-10">
+            <div class="w-full sm:w-[80%] lg:w-[60%] shadow-2xl rounded bg-white p-6 py-10 mt-15">
+                <form [formGroup]="testimonialForm" (ngSubmit)="onSubmit()" class="space-y-5">
+                    <h2 class="text-2xl text-center font-medium">Add Testimonial</h2>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Enter testimonial title</mat-label>
+                            <input formControlName="title" matInput placeholder="Title">
+                            <mat-icon matSuffix>title</mat-icon>
+                            <mat-hint>Enter testimonial title</mat-hint>
+                        </mat-form-field>
+                    </div>
 
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Description</mat-label>
-                    <textarea matInput  matInput rows="6" cols="50"></textarea>
-                    <mat-icon matSuffix>description</mat-icon>  
-                </mat-form-field>
-            </div>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Description</mat-label>
+                            <textarea formControlName="description" matInput matInput rows="6" cols="50"></textarea>
+                            <mat-icon matSuffix>description</mat-icon>
+                        </mat-form-field>
+                    </div>
 
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Enter the name</mat-label>
-                    <input matInput placeholder="Name">
-                    <mat-icon matSuffix>person</mat-icon>
-                    <mat-hint>Enter the name</mat-hint>
-                </mat-form-field>
-            </div>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Enter the name</mat-label>
+                            <input formControlName="name" matInput placeholder="Name">
+                            <mat-icon matSuffix>person</mat-icon>
+                            <mat-hint>Enter the name</mat-hint>
+                        </mat-form-field>
+                    </div>
 
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Enter the company name</mat-label>
-                    <input matInput placeholder="Company">
-                    <mat-icon matSuffix>business</mat-icon>
-                    <mat-hint>Enter the company name</mat-hint>
-                </mat-form-field>
-            </div>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Enter the company name</mat-label>
+                            <input formControlName="companyName" matInput placeholder="Company">
+                            <mat-icon matSuffix>business</mat-icon>
+                            <mat-hint>Enter the company name</mat-hint>
+                        </mat-form-field>
+                    </div>
 
-            <div class="">
-                <button mat-raised-button
-                    class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
-                    Submit
-                </button>
-            </div>
+                    <div class="">
+                        <button mat-raised-button type="submit"
+                            class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            Submit
+                        </button>
+                    </div>
 
-        </form>
-    </div>
-</div>
+                </form>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="List of Testimonial">
+        <div class="max-w-6xl mx-auto px-4 py-8 space-y-10">
+            @for (data of testimonials; track data.id) {
+            <div class="bg-white shadow-md rounded-lg p-6 text-center border border-gray-200">
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800">{{ data.title }}</h2>
+                </div>
+
+                <div class="mb-6">
+                    <p class="text-gray-600 italic">"{{ data.description }}"</p>
+                    <h3 class="text-xl font-bold mt-4 text-gray-900">{{ data.name }}</h3>
+                    <p class="text-gray-500">{{ data.companyName }}</p>
+                </div>
+
+                <div class="flex justify-center gap-4 mt-4">
+                    <button
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm shadow-sm transition-all">
+                        Edit
+                    </button>
+                    <button (click)="deleteTestimonial(data.id)"
+                        class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md text-sm shadow-sm transition-all">
+                        Delete
+                    </button>
+                </div>
+            </div>
+            }
+        </div>
+    </mat-tab>
+</mat-tab-group>

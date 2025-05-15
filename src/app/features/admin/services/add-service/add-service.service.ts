@@ -1,6 +1,7 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { Firestore, collection, addDoc, CollectionReference, DocumentData, getDocs, query, getDoc, doc, } from '@angular/fire/firestore';
 import { AdminInterface, serviceData } from '../../../../shared/interface/admin-interface';
+import { LoadingServiceService } from '../loading/loading-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AddServiceService {
   loading = signal(false);
   errorOccurred = signal<string | null>(null);
 
-  constructor() { }
+  constructor(private loadingService: LoadingServiceService) { }
 
   // Function to add a service to Firestore
   addService(service: AdminInterface): Promise<any> {
@@ -43,17 +44,23 @@ export class AddServiceService {
     }
   }
   async getServiceById(id: string): Promise<serviceData | null> {
+    this.loadingService.show();
     try {
       const docRef = doc(this.firestore, 'service', id);
       const snapshot = await getDoc(docRef);
+      this.loadingService.hide();
       if (snapshot.exists()) {
         return { id: snapshot.id, ...snapshot.data() } as serviceData;
+
       }
+
       return null;
     } catch (error) {
       console.error('Error fetching single service:', error);
       this.errorOccurred.set('Failed to fetch service');
       return null;
+    } finally {
+      this.loadingService.hide();
     }
   }
 }

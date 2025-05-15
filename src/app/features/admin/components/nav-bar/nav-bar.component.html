@@ -1,37 +1,48 @@
 <div [ngClass]="dynamicMargin" [ngStyle]="{ 'width': dynamicWidth }"
-    class="h-20 top-0 shadow bg-white flex items-center px-6">
+    class="h-20 top-0 shadow text-white flex items-center px-6 " [class.w-70]="MenuOpen" [class.w-20]="!MenuOpen" style="background-color: #0C7CFD;">
 
     <div class="w-full flex justify-between   items-center space-x-6">
-        <div>
-            <h1 class="text-xl font-medium">Admin Dashboard</h1>
+        <div class="flex items-center gap-4">
+            <div class="mt-1">
+                <button (click)="menuToggle()" [class.ml-auto]="MenuOpen" class="shrink-0 cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div>
+                <h1 class="text-xl font-medium">Admin Dashboard</h1>
+            </div>
         </div>
         <div class=" flex justify-center items-center space-x-6">
             <div>
                 <i class="bi bi-bell text-xl"></i>
             </div>
-    
+
             <!-- Profile Dropdown -->
             <div class="relative">
-                <img src="assets/images/selfi.jpeg" alt="profile" class="w-12 h-12 rounded-full object-cover cursor-pointer"
-                    (click)="toggleMenu()" />
-    
+                <img src="assets/images/selfi.jpeg" alt="profile"
+                    class="w-12 h-12 rounded-full object-cover cursor-pointer" (click)="toggleMenuu()" />
+
                 <!-- Dropdown Menu -->
                 @if (isMenuOpen) {
                 <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
                     <ul class="py-2">
-                        @for (option of profileOpation; track option) {
+                        @for (item of profileOpation; track item) {
                         <li>
-                            <a [routerLink]="option.route" (click)="closeMenu()"
+                            <a [routerLink]="item.route" (click)="item.label === 'Logout' && onLogout(item)"
+                                (click)="closeMenuu()"
                                 class="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-700">
-                                <i class="material-icons text-sm mr-2">{{ option.icon }}</i>
-                                <span>{{ option.label }}</span>
+                                <i class="material-icons text-sm mr-2">{{ item.icon }}</i>
+                                <span>{{ item.label }}</span>
                             </a>
                         </li>
                         }
                     </ul>
                 </div>
                 }
-            </div>    
+            </div>
         </div>
     </div>
 </div>

@@ -1,57 +1,14 @@
-<div class="pt-10 pb-10" style="background-color: #f0f1f3 ;">
-    <div class="mb-20 mt-10 lg:mt-20">
+<div class="pt-2 pb-1 lg:pt-8 lg:pb-8" style="background-color: #f0f1f3 ;" id="skills">
+    <div class=" mx-auto max-w-6xl mb-10 mt-5 lg:mt-10">
         <h1 class="text-3xl lg:text-5xl font-bold text-center">Skills</h1>
-        <div class="flex flex-wrap justify-center gap-10 max-w-7xl m-auto items-center mt-20">
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl  hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/htmlLogo.jpg" alt="" class="w-full">
-                <span>Html</span>
-            </div>
-    
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/css.jpg" alt="" class="w-full">
-                <span>CSS</span>
-            </div>
-    
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/bootstrap.png" alt="" class="w-full">
-                <span>Bootstrap</span>
-            </div>
-    
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/scss.png" alt="" class="w-full">
-                <span>SCSS</span>
-            </div>
-    
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/tawilwind.png" alt="" class="w-full">
-                <span>Tailwind CSS</span>
-            </div>
-    
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/type.png" alt="" class="w-full">
-                <span>TypeScript</span>
-            </div>
-    
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/js.png" alt="" class="w-full">
-                <span>JavaScript</span>
-            </div>
-    
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/angular.png" alt="" class="w-full">
-                <span>Angular</span>
-            </div>
-    
+        <div class="flex flex-wrap justify-center gap-2 gap-y-10 max-w-6xl m-auto items-center mt-10 lg:mt-20">
+            @for(skill of skills; track skill){
             <div
-                class="w-33 h-40 text-center items-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/apiImage.png" alt="" class="w-full items-center">
-                <span class="">API Integration</span>
+                class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl  hover:p-1 border border-purple-500 cursor-pointer">
+                <img [src]="skill.imageUrl" alt="{{ skill.title }}" class="w-full rounded-xl">
+                <span>{{ skill.title }}</span>
             </div>
-            
-            <div class="w-33 h-40 text-center  p-3 shadow-2xl rounded-xl hover:p-1 border border-purple-500 cursor-pointer">
-                <img src="assets/images/gitImage.jpg" alt="" class="w-full">
-                <span>Git</span>
-            </div>
+            }
         </div>
     </div>
 </div>

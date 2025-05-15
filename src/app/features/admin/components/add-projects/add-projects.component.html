@@ -1,54 +1,94 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-10">
-    <div class="w-full sm:w-[80%] lg:w-[60%] shadow-2xl rounded bg-white p-6 py-10">
-        <form class="space-y-6">
-            <h2 class="text-2xl text-center font-medium">Add Project</h2>
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Enter project title</mat-label>
-                    <input matInput placeholder="Title">
-                    <mat-icon matSuffix>title</mat-icon>
-                    <mat-hint>Enter your project title</mat-hint>
-                </mat-form-field>
-            </div>
+<mat-tab-group class="mt-20">
+    <mat-tab label="Add projects">
+        <div class="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-10">
+            <div class="w-full sm:w-[80%] lg:w-[60%] shadow-2xl rounded bg-white p-6 py-10 mt-15">
+                <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="space-y-6">
+                    <h2 class="text-2xl text-center font-medium">Add Project</h2>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Enter project title</mat-label>
+                            <input formControlName="title" matInput placeholder="Title">
+                            <mat-icon matSuffix>title</mat-icon>
+                            <mat-hint>Enter your project title</mat-hint>
+                        </mat-form-field>
+                    </div>
 
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Short Description</mat-label>
-                    <textarea matInput  matInput rows="4" cols="50"></textarea>
-                    <mat-icon matSuffix>description</mat-icon>  
-                </mat-form-field>
-            </div>
+                      <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Enter project category</mat-label>
+                            <input formControlName="category" matInput placeholder="category">
+                            <mat-icon matSuffix>category</mat-icon>
+                            <mat-hint>Enter your project category</mat-hint>
+                        </mat-form-field>
+                    </div>
 
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Full description</mat-label>
-                    <textarea matInput  matInput rows="6" cols="50"></textarea>
-                    <mat-icon matSuffix>description</mat-icon>  
-                </mat-form-field>
-            </div>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Short Description</mat-label>
+                            <textarea formControlName="shortDescription" matInput matInput rows="4"
+                                cols="50"></textarea>
+                            <mat-icon matSuffix>description</mat-icon>
+                        </mat-form-field>
+                    </div>
 
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Project demo URL</mat-label>
-                    <input matInput type="url" placeholder="https://www.example.com"
-                        formControlName="Project demo">
-                    <mat-icon matSuffix>link</mat-icon>
-                </mat-form-field>
-            </div>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Full description</mat-label>
+                            <textarea formControlName="fullDescription" matInput matInput rows="6" cols="50"></textarea>
+                            <mat-icon matSuffix>description</mat-icon>
+                        </mat-form-field>
+                    </div>
 
-            <div>
-                <label class="block mb-2 text-medium font-medium text-gray-700">Project Image</label>
-                <input type="file" accept="image/*"
-                    class="block w-full text-sm text-gray-700 border outline h-12 items-center border-gray-300 bg-gray-300 border-t border-l border-r rounded-t-sm cursor-pointer" />
-            </div>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Project demo URL</mat-label>
+                            <input formControlName="projectUrl" matInput type="url"
+                                placeholder="https://www.example.com">
+                            <mat-icon matSuffix>link</mat-icon>
+                        </mat-form-field>
+                    </div>
 
-            <div class="">
-                <button mat-raised-button
-                    class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
-                    Submit
-                </button>
-            </div>
+                    <div>
+                        <label class="block mb-2 text-medium font-medium text-gray-700">Project Image</label>
+                        <input type="file" (change)="onImageChange($event)" accept="image/*"
+                            class="block w-full text-sm text-gray-700 border outline h-12 items-center border-gray-300 bg-gray-300 border-t border-l border-r rounded-t-sm cursor-pointer" />
+                    </div>
 
-        </form>
-    </div>
-</div>
+                    <div class="">
+                        <button mat-raised-button
+                            class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            Submit
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="List of projects">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-y-4 justify-items-center mt-5 lg:mt-15">
+            @for(data of projects; track data.id){
+            <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
+                <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
+                    <img [src]="data.projectImage" alt="" class="w-full">
+                </div>
+                <div
+                    class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
+                    <p>{{data.category}}</p>
+                    <h2 class="text-2xl font-medium">{{data.title}}</h2>
+                    <p>{{ data.shortDescription }}</p>
+                    <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
+                        <a class="no-underline text-purple-500 font-medium">View Projects</a>
+                        <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
+                    </button>
+                    <div class="mt-4 flex gap-2">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded">Edit</button>
+                        <button (click)="deleteProject(data.id)"
+                            class="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded">Delete</button>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </mat-tab>
+</mat-tab-group>

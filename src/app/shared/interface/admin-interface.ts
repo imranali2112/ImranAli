@@ -1,17 +1,24 @@
 import { Title } from "@angular/platform-browser";
 import { EmailAuthCredential } from "firebase/auth";
-
+ 
 export interface AdminInterface {
     about: AboutData;
     profile: profileData;
     service: serviceData;
     experience: ExperienceData;
     contact: contactData;
+    testimonial: testimonialData; 
+    projects: projectData;
+    skill: skillData;
+
 }
 
 export interface AboutData {
+    id: string,
     name: string;
-    description: string;
+    frontEnd: string;
+    backEnd: string;
+    education:string;
     experience: number;
     projects: number;
     clients: number;
@@ -19,6 +26,7 @@ export interface AboutData {
 }
 
 export interface profileData {
+    id?:string;
     name: string;
     email: String;
     contactNumber: number;
@@ -27,9 +35,8 @@ export interface profileData {
     fiverr: string;
     github: string;
     instagram: string;
-    facebook: string;
-    CV: null;
-    image: '';
+    facebook: string; 
+    image: string;
 }
 
 export interface serviceData {
@@ -55,3 +62,27 @@ export interface contactData{
     message: string;
 }
 
+export interface testimonialData{ 
+    id?:any;
+    title: string;
+    description: string;
+    name: string;
+    companyName: string;
+}
+
+export interface projectData{
+    id?:string;
+    title: string;
+    shortDescription: string;
+    fullDescription: string;
+    category: string;
+    projectUrl: string;
+    projectImage: string;
+}
+
+export interface skillData{
+    id?:any;
+    title: string;
+    imageUrl: string;
+    createdAt: string;
+}

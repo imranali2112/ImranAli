@@ -1,37 +1,41 @@
-<div class="pt-10 pb-10" style="background-color: #f0f1f3;"> <!-- Added padding-top and padding-bottom to handle the spacing -->
-    <h1 class="text-center text-3xl lg:text-5xl font-bold">Services</h1>
+<div class=" pb- 5 lg:pb-10 lg:pt-10" style="background-color: #f0f1f3;" id="experties">
+  <!-- Added padding-top and padding-bottom to handle the spacing -->
+  <div class="mx-auto max-w-6xl">
     <div class="pt-10 pb-10" style="background-color: #f0f1f3;">
-        <div class="md:ms-10 md:me-10 lg:ms-0 lg:me-0 lg:flex justify-between max-w-7xl mx-auto px-4 gap-15 mt-10">
-      
-          <!-- Left Block -->
-          <div *ngIf="service1() as s1" class="lg:w-[45%] m-auto items-center">
-            <h2 class="text-2xl lg:text-4xl font-bold"> {{ s1.title }}</h2>
-            <p class="mt-3">{{ s1.description }}</p>
-          </div>
-      
-          <!-- Right Block -->
-          <div class="lg:w-[43%] flex flex-col gap-y-5 mt-10 lg:mt-0">
-            <div *ngIf="service2() as s2" class="bg-white rounded px-5 py-6 border-l-[5px] border-l-purple-500">
-              <h2 class="text-xl lg:text-2xl font-medium">{{ s2.title }}</h2>
-              <p>{{ s2.description }}</p>
-            </div>
-      
-            <div *ngIf="service3() as s3" class="bg-white rounded px-5 py-6">
-              <h2 class="text-xl lg:text-2xl font-medium">{{ s3.title }}</h2>
-              <p>{{ s3.description }}</p>
-            </div>
-      
-            <div *ngIf="service4() as s4" class="bg-white rounded px-5 py-6">
-              <h2 class="text-xl lg:text-2xl font-medium">{{ s4.title }}</h2>
-              <p>{{ s4.description }}</p>
-            </div>
-          </div>
-      
-        </div>
-      </div>
-      
-</div>
+      <div class="md:ms-10 md:me-10 lg:ms-1 lg:-me-2 lg:flex justify-between max-w-6xl mx-auto px-2 mt-10">
 
- 
-  
-  
+        <!-- Left Block -->
+        <div *ngIf="service1() as s1" class="lg:w-[50%] flex flex-col justify-center gap-y-10 text-justify">
+          <h2 class="text-2xl lg:text-4xl font-bold"> {{ s1.title }}</h2>
+          <p class="">{{ s1.description }}</p>
+          <a target="_blank" href="https://www.fiverr.com/imranali2025/convert-psd-to-html-and-figma-to-html-css?context_referrer=seller_page&ref_ctx_id=be09ee52c88242afb48e99b2ca855984&pckg_id=1&pos=1&imp_id=cf19ed76-5090-4478-bc9c-34a976473b97"
+            class="w-30 bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700 inline-block">
+            See Hello!
+          </a>
+        </div>
+
+        <!-- Right Block -->
+        <div class="lg:w-[45%] flex flex-col gap-y-5 mt-10 lg:mt-0 ">
+          <div *ngIf="service2() as s2" class="bg-white rounded px-5 py-6 border-l-[5px] border-l-purple-500">
+            <h2 class="text-xl lg:text-2xl font-medium">{{ s2.title }}</h2>
+            <div *ngFor="let paragraph of s2.description.split('\n')">
+              <p>{{ paragraph }}</p>
+            </div>
+          </div>
+
+          <div *ngIf="service3() as s3" class="bg-white rounded px-5 py-6">
+            <h2 class="text-xl lg:text-2xl font-medium">{{ s3.title }}</h2>
+            <p>{{ s3.description }}</p>
+          </div>
+
+          <div *ngIf="service4() as s4" class="bg-white rounded px-5 py-6">
+            <h2 class="text-xl lg:text-2xl font-medium">{{ s4.title }}</h2>
+            <p>{{ s4.description }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

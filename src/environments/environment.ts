@@ -1,3 +1,5 @@
+import { getFirestore } from "firebase/firestore";
+
 export const environment = {
     production: false,
     firebaseConfig: {
@@ -8,5 +10,6 @@ export const environment = {
         messagingSenderId: "342743439173",
         appId: "1:342743439173:web:cca40b634d1910d497102c"
     }
+    
 };
 

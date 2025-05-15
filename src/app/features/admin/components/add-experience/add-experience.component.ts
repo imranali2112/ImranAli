@@ -8,6 +8,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExperienceService } from '../../services/experience-service/experience.service';
+import { MatTabsModule } from '@angular/material/tabs';
+import { ExperienceData } from '../../../../shared/interface/admin-interface';
+import { Timestamp } from '@angular/fire/firestore';
+import { CommonModule } from '@angular/common';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-add-experience',
@@ -20,13 +25,16 @@ import { ExperienceService } from '../../services/experience-service/experience.
     MatDividerModule,
     MatButtonModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTabsModule,
+    CommonModule,
   ],
   templateUrl: './add-experience.component.html',
   styleUrls: ['./add-experience.component.css']
 })
 export class AddExperienceComponent {
   experienceForm: FormGroup;
+  experiences: ExperienceData[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -49,7 +57,7 @@ export class AddExperienceComponent {
           startDate: this.experienceForm.value.startDate,
           endDate: this.experienceForm.value.endDate
         });
-        
+
         console.log('Experience added with ID: ', id);
         this.experienceForm.reset();
       } catch (error) {
@@ -57,4 +65,35 @@ export class AddExperienceComponent {
       }
     }
   }
+
+  async ngOnInit() {
+    const data = await this.experienceService.getAllExperiences();
+
+    this.experienceService.getAllExperiences().pipe(
+      map(data =>
+        data.map(exp => ({
+          ...exp,
+          startDate: (exp.startDate as unknown as Timestamp).toDate(),
+          endDate: (exp.endDate as unknown as Timestamp).toDate(),
+        }))
+      )
+    ).subscribe((processedData: ExperienceData[]) => {
+      this.experiences = processedData;
+    });
+  }
+
+  deleteExperience(id: string): void {
+  if (confirm('Are you sure you want to delete this experience?')) {
+    this.experienceService.deleteExperience(id)
+      .then(() => {
+        console.log('Experience deleted:', id);
+        // Remove the deleted experience from the local array
+        this.experiences = this.experiences.filter(exp => exp.id !== id);
+      })
+      .catch(error => {
+        console.error('Error deleting experience:', error);
+      });
+  }
+}
+
 }

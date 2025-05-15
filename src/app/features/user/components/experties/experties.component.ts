@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-experties',
-  imports:[CommonModule ],
+  imports:[CommonModule],
   templateUrl: './experties.component.html',
   styleUrls: ['./experties.component.css'],
 })
@@ -18,7 +18,13 @@ export class ExpertiesComponent {
   loading = computed(() => this.dataService.loading());
   error = computed(() => this.dataService.errorOccurred());
 
-  constructor(private dataService: AddServiceService) {}
+  constructor(private dataService: AddServiceService) {
+    effect(() => {
+      if (this.error()) {
+        console.error('Error occurred:', this.error());
+      }
+    });
+  }
 
   ngOnInit(): void {
     const ids = ['fa7D7mODTxNc5QthKXfT', 'DhUZXfFwFTboKfZ4zA0y', '01oe0m2O8IZHuQrxtahn', 'ylJoW3uSVilBBB3ECLDW'];
@@ -30,12 +36,6 @@ export class ExpertiesComponent {
       this.dataService.getServiceById(id).then(data => {
         serviceSignals[index].set(data);
       });
-    });
-
-    effect(() => {
-      if (this.error()) {
-        console.error('Error occurred:', this.error());
-      }
     });
   }
 }

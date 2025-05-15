@@ -1,52 +1,91 @@
-<div class="  flex   justify-center bg-gray-50 px-4 py-10">
-    <div class="w-full sm:w-[80%] lg:w-[60%] shadow-2xl rounded bg-white p-6 py-10">
-        <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()" class="space-y-5">
-            <h2 class="text-2xl text-center font-medium">Add Experience</h2>
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Enter the title</mat-label>
-                    <input matInput formControlName="title" placeholder="Title">
-                    <mat-icon matSuffix>title</mat-icon>
-                    <mat-hint>Enter the title</mat-hint>
-                </mat-form-field>
+<mat-tab-group class="mt-20">
+    <mat-tab label="Add Experience">
+        <div class="  flex   justify-center bg-gray-50 px-4 py-10">
+            <div class="w-full sm:w-[80%] lg:w-[60%] shadow-2xl rounded bg-white p-6 py-10 mt-15">
+                <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()" class="space-y-5">
+                    <h2 class="text-2xl text-center font-medium">Add Experience</h2>
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Enter the title</mat-label>
+                            <input matInput formControlName="title" placeholder="Title">
+                            <mat-icon matSuffix>title</mat-icon>
+                            <mat-hint>Enter the title</mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field appearance="fill" class="w-full">
+                            <mat-label>Enter the experience Description</mat-label>
+                            <textarea matInput formControlName="description" matInput rows="6" cols="50"></textarea>
+                            <mat-icon matSuffix>Experience</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="w-full">
+                            <mat-label>Choose a start date</mat-label>
+                            <input matInput formControlName="startDate" [matDatepicker]="picker">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="w-full">
+                            <mat-label>Choose a end date</mat-label>
+                            <input matInput formControlName="endDate" [matDatepicker]="picker">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="">
+                        <button mat-raised-button
+                            class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            Submit
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="List of Experience">
+        <div class="lg:pb-8 lg:pt-8" id="experience">
+            <div class="max-w-6xl mx-auto px-4 mt-8 mb-8 lg:mt-16 lg:mb-16">
+                @for (display of experiences; track display.id) {
+                <div class="flex flex-col lg:flex-row gap-6 border-b pb-6 mb-6">
+
+                    <!-- Title Section -->
+                    <div class="lg:w-1/5">
+                        <h2 class="text-xl font-semibold text-gray-800">{{ display.title }}</h2>
+                    </div>
+
+                    <!-- Description Section -->
+                    <div class="lg:w-3/5">
+                        <p class="text-gray-700">{{ display.description }}</p>
+                    </div>
+
+                    <!-- Date Section -->
+                    <div class="lg:w-1/5 text-gray-600 font-medium">
+                        <p>{{ display.startDate | date: 'MMMM yyyy' }} – {{ display.endDate | date: 'MMMM yyyy' }}</p>
+                    </div>
+                    <div class="flex gap-2 mt-2">
+                        <button
+                            class="w-20 h-10 bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded shadow-sm transition">Edit</button>
+                        <button (click)="deleteExperience(display.id)"
+                            class="w-20 h-10 bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded shadow-sm transition">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+
+                }
             </div>
 
-            <div>
-                <mat-form-field appearance="fill" class="w-full">
-                    <mat-label>Enter the experience Description</mat-label>
-                    <textarea matInput formControlName="description"  matInput rows="6" cols="50"></textarea>
-                    <mat-icon matSuffix>Experience</mat-icon>  
-                </mat-form-field>
-            </div>
-            
-            <div>
-                <mat-form-field class="w-full">
-                    <mat-label>Choose a start date</mat-label>
-                    <input matInput formControlName="startDate" [matDatepicker]="picker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-            </div>
-
-            <div>
-                <mat-form-field class="w-full">
-                    <mat-label>Choose a end date</mat-label>
-                    <input matInput formControlName="endDate" [matDatepicker]="picker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-            </div>
-
-
-            <div class="">
-                <button mat-raised-button
-                    class="bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
-                    Submit
-                </button>
-            </div>
-
-        </form>
-    </div>
-</div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

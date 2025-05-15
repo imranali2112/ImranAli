@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ExperienceData } from '../../../../shared/interface/admin-interface';
-import { Firestore, Timestamp, addDoc, collection, collectionData, getDocs, orderBy, query, serverTimestamp } from '@angular/fire/firestore';
- 
+import { Firestore, Timestamp, addDoc, collection, collectionData, deleteDoc, doc, getDocs, orderBy, query, serverTimestamp } from '@angular/fire/firestore';
+
 import { Observable } from 'rxjs';
+import { LoadingServiceService } from '../loading/loading-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienceService {
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore, private loadingService: LoadingServiceService) { }
 
   async addExperience(experience: Omit<ExperienceData, 'id'>): Promise<string> {
     try {
@@ -32,19 +33,13 @@ export class ExperienceService {
     return Timestamp.fromDate(date);
   }
 
-  async getAllExperiences(): Promise<ExperienceData[]> {
-    try {
-      const snapshot = await getDocs(query(collection(this.firestore, 'experiences')));
-      const experiences: ExperienceData[] = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as ExperienceData[];
-      return experiences;
-    } catch (error) {
-      console.error('Error fetching all experiences:', error);
-      throw new Error('Failed to fetch all experiences');
-    }
+  getAllExperiences(): Observable<ExperienceData[]> {
+    const experiencesRef = collection(this.firestore, 'experiences');
+    const experiencesQuery = query(experiencesRef); // You can add ordering or filtering here if needed
+    return collectionData(experiencesQuery, { idField: 'id' }) as Observable<ExperienceData[]>;
   }
-  
-   
+  deleteExperience(id: string): Promise<void> {
+    const expDocRef = doc(this.firestore, 'experiences', id);
+    return deleteDoc(expDocRef);
+  }
 }

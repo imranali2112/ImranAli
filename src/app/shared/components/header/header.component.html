@@ -1,5 +1,5 @@
 <nav class="bg-white shadow-sm">
-    <div class="max-w-7xl mx-auto px-4">
+    <div class="max-w-6xl mx-auto lg:p-0 md:px-10 m-auto">
         <div class="flex justify-between items-center py-4">
             <!-- Logo -->
             <div class="flex items-center space-x-4">
@@ -8,7 +8,7 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="lg:hidden" (click)="isOpeon()"> 
+            <div class="lg:hidden me-3 lg:me-0" (click)="isOpeon()">
                 <label for="menu-toggle" class="cursor-pointer">
                     <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24">
@@ -18,40 +18,42 @@
             </div>
 
             <!-- Desktop Menu -->
-            <ul class="hidden lg:flex items-center space-x-6 font-normal text-gray-700">
-                <li><a [routerLink]="['/']" class="hover:text-purple-600">Home</a></li> 
-                <li><a [routerLink]="['/project']" class="hover:text-purple-600">Projects</a></li>
-                <li><a [routerLink]="['/experties']" class="hover:text-purple-600">Service</a></li>
-                <li><a [routerLink]="['/skills']" class="hover:text-purple-600">Skills</a></li> 
-                <li><a [routerLink]="['/experience']" class="hover:text-purple-600">Experience</a></li>
-                <li><a [routerLink]="['/testimonial']" class="hover:text-purple-600">Testimonial</a></li>
-                <li>
-                    <a [routerLink]="['/contact']" class="bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700">
-                        Contact
-                    </a>
+            <ul class="hidden lg:flex -center space-x-6 font-normal text-gray-700">
+                <li routerLinkActive="active"><a routerLink="" fragment="about" class="hover:text-purple-600">Home</a></li>
+                <li routerLinkActive="active"><a routerLink="" fragment="projects" class="hover:text-purple-600">Projects</a></li>
+                <li routerLinkActive="active"><a routerLink="" fragment="experties" class="hover:text-purple-600">Service</a></li>
+                <li routerLinkActive="active"><a routerLink="" fragment="skills" class="hover:text-purple-600">Skills</a></li>
+                <li routerLinkActive="active"><a routerLink="" fragment="experience" class="hover:text-purple-600">Experience</a></li>
+                <li routerLinkActive="active"><a routerLink="" fragment="testimonial" class="hover:text-purple-600">Testimonial</a></li>
+                <li routerLinkActive="active">
+                  <a routerLink="" fragment="contact"
+                     class="bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700">
+                    Contact
+                  </a>
                 </li>
-            </ul>
+              </ul>              
         </div>
 
         <!-- Hidden Checkbox -->
         <input type="checkbox" id="menu-toggle" class="hidden peer" />
 
-        @if(!isMenuOpen){
-        <div class="peer-checked:block  ">
-            <ul class="flex flex-col space-y-3 mt-4 font-normal text-gray-700">
-                <li><a [routerLink]="['/']" class="hover:text-purple-600">Home</a></li> 
-                <li><a [routerLink]="['/project']" class="hover:text-purple-600">Projects</a></li>
-                <li><a [routerLink]="['/experties']" class="hover:text-purple-600">Service</a></li>
-                <li><a [routerLink]="['/skills']" class="hover:text-purple-600">Skills</a></li> 
-                <li><a [routerLink]="['/experience']" class="hover:text-purple-600">Experience</a></li>
-                <li><a [routerLink]="['/testimonial']" class="hover:text-purple-600">Testimonial</a></li>
-                <li [routerLink]="['/contact']" class="bg-purple-600 mb-4 text-white px-5 py-2 text-center rounded hover:bg-purple-700 w-full">
-                    <a>
-                        Contact
+        @if(isMenuOpen){
+            <div class="lg:hidden peer-checked:block">
+                <ul class="flex flex-col space-y-3 px-2 mt-4 font-normal text-gray-700">
+                  <li><a routerLink="/" fragment="about" class="hover:text-purple-600">Home</a></li>
+                  <li><a routerLink="/" fragment="projects" class="hover:text-purple-600">Projects</a></li>
+                  <li><a routerLink="/" fragment="experties" class="hover:text-purple-600">Service</a></li>
+                  <li><a routerLink="/" fragment="skills" class="hover:text-purple-600">Skills</a></li>
+                  <li><a routerLink="/" fragment="experience" class="hover:text-purple-600">Experience</a></li>
+                  <li><a routerLink="/" fragment="testimonial" class="hover:text-purple-600">Testimonial</a></li>
+                  <li>
+                    <a routerLink="/" fragment="contact"
+                       class="bg-purple-600 mb-4 text-white px-5 py-2 text-center rounded hover:bg-purple-700 w-full block">
+                      Contact
                     </a>
-                </li>
-            </ul>
-        </div>
+                  </li>
+                </ul>
+            </div>              
         }
     </div>
 </nav>

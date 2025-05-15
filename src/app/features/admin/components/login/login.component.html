@@ -1,32 +1,36 @@
 <div class="  flex justify-center items-center justify-items-center h-screen bg-gray-50 px-4 py-10">
   <div class="w-full sm:w-[60%] lg:w-[30%] shadow-2xl rounded bg-white p-6 py-10">
-    <form class="space-y-5">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-5">
       <h2 class="text-xl text-center">Login</h2>
 
       <div>
         <mat-form-field appearance="fill" class="w-full">
-          <mat-label>Username</mat-label>
-          <input matInput placeholder="Username">
-          <mat-icon matSuffix>person</mat-icon>
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="Email Address">
+          <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field appearance="fill" class="w-full">
           <mat-label>Enter your password</mat-label>
-          <input matInput />
+          <input formControlName="password" matInput />
           <button mat-icon-button matSuffix>
             <mat-icon>lock</mat-icon>
           </button>
         </mat-form-field>
       </div>
 
-      <div>
-        <button mat-raised-button type="submit"
-          class="w-full bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700">
-          Submit
-        </button>
-      </div>
+      
+        <div>
+          <button mat-raised-button type="submit" 
+            class="w-full bg-purple-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-purple-700">
+            Submit
+          </button>
+        </div> 
+
+      <div>{{errorMessage}}</div>
+
     </form>
 
 

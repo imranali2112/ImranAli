@@ -1,4 +1,6 @@
- 
+<ngx-spinner></ngx-spinner>
+<app-nav-bar [MenuOpen]="MenuOpen" (toggleMenu)="toggleMenu()" class="fixed top-0 left-0 w-full z-50"></app-nav-bar>
+<app-side-bar [MenuOpen]="MenuOpen" class="fixed top-0 left-0 z-40"></app-side-bar>
 <div [ngClass]="dynamicMargin" [ngStyle]="{ 'width': dynamicWidth }">
     <router-outlet></router-outlet>
-</div> 
+</div>

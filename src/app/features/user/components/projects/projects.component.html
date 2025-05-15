@@ -1,192 +1,27 @@
-<div class="max-w-7xl mx-auto px-4 mb-10 lg:mb-20">
-    <div class="max-w-7xl mx-auto px-4 mt-10 ">
+<div class="max-w-6xl mx-auto lg:pb-10 pt-10 md:px-5 lg:px-0 mb-10 lg:mb-20" id="projects">
+    <div>
         <h1 class="text-3xl lg:text-5xl font-bold text-center">Projects</h1>
-        <p class="w-full md:w-200 m-auto mt-8 text-center">Here are some of my projects. Each one was made with care and effort. There are many types of work out there,
+        <p class="w-full md:w-185 m-auto mt-8 text-center">Here are some of my projects. Each one was made with care and effort. There are many types of work out there,
             but these are special to me. Take a look and see how I made them.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-y-5 justify-items-center mt-15">
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-4 justify-items-center mt-5 lg:mt-15">
+        @for(data of projects; track data){
+            <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] shadow-2xl rounded">
+                <div class=" m-auto sm:max-w-[390px] h-40 w-full object-cover overflow-hidden">
+                    <img [src]="data.projectImage" alt="" class="w-full h-full">
+                </div>
+                <div class="w-[90%px] h-auto lg:ms-1 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
+                    <p>{{data.category}}</p>
+                    <h2 class="text-2xl font-medium">{{data.title}}</h2>
+                    <p>{{ data.shortDescription  }}</p>
+                    <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
+                        <a [routerLink]="['project-detail', data.id]" class="no-underline text-purple-500 font-medium">View Projects</a>
+                        <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
+                    </button>
+                </div>
             </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <div class="w-full sm:w-[70%] md:w-[90%] md:max-w-[390px] h-auto shadow-2xl rounded">
-            <div class=" m-auto max-w-[390px] h-auto object-cover overflow-hidden">
-                <img src="assets/images/ILatterLogo.jpg" alt="" class="w-full">
-            </div>
-            <div class="w-[90%px] h-auto lg:ms-5 lg:sm-0 m-auto overflow-hidden text-ellipsis whitespace-normal p-2">
-                <p>UI-UX Design</p>
-                <h2 class="text-2xl font-medium">Job Portal Web app</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quisquam consequatur dolor esse
-                    architecto</p>
-                <button class=" bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                    <a class="no-underline text-purple-500 font-medium">View Projects</a>
-                    <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
-                </button>
-            </div>
-        </div>
-
-
+        }
     </div>
 </div>
+
+ 
