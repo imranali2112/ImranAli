@@ -28,7 +28,6 @@
                     @for(option of sideBarOpation; track option){
                     <li class="w-full ms-2 h-7 rounded flex items-center">
                         <i class="material-icons text-base mr-2 flex items-center justify-center">{{ option.icon }}</i>
-
                         @if(MenuOpen){
                         <a [routerLink]="option.route"
                             class="ps-1 w-full h-7 flex items-center hover:bg-black hover:rounded cursor-pointer">
@@ -36,7 +35,6 @@
                         </a>
                         }
                     </li>
-
                     }
                 </ul>
             </nav>
