@@ -11,13 +11,13 @@
       <div class="lg:hidden me-3 lg:me-0" (click)="isOpeon()">
         <label for="menu-toggle" class="cursor-pointer">
           @if(!isMenuOpen){
-          <svg class="w-6 h-6 text-black me-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-black me-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
           }
 
           @if(isMenuOpen){
-          <svg class="w-6 h-6 text-black me-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-black me-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
           }
@@ -50,7 +50,7 @@
 
     @if(isMenuOpen){
     <div class="lg:hidden peer-checked:block">
-      <ul class="flex flex-col space-y-3 px-2 mt-4 font-normal text-gray-700">
+      <ul class="flex flex-col space-y-3 px-7 mt-4 font-normal text-gray-700">
         <li><a routerLink="/" fragment="about" class="hover:text-purple-600">Home</a></li>
         <li><a routerLink="/" fragment="projects" class="hover:text-purple-600">Projects</a></li>
         <li><a routerLink="/" fragment="experties" class="hover:text-purple-600">Service</a></li>
