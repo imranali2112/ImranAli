@@ -4,7 +4,7 @@
   }
 
   to {
-    width: 44%;
+    width: 7.2ch;
   }
 }
 
@@ -26,5 +26,6 @@
   overflow: hidden;
   border-right: 3px solid black;
   white-space: nowrap;
-  animation: typing 0.75s steps(9) 1s 1 normal both, blink-caret 0.75s step-end infinite;
+  animation: typing 0.80s steps(9) 1s 1 normal both, blink-caret 0.75s step-end infinite;
 }
+

@@ -14,9 +14,9 @@
                     <p>{{data.category}}</p>
                     <h2 class="text-2xl font-medium">{{data.title}}</h2>
                     <p>{{ data.shortDescription  }}</p>
-                    <button class="text-black bg-white border border-purple-500 w-35 mt-3 h-10 rounded text-center">
-                        <a [routerLink]="['project-detail', data.id]" class="no-underline text-purple-500 font-medium">View Projects</a>
-                        <i class="bi bi-arrow-right ml-2 text-purple-500"></i>
+                    <button [routerLink]="['project-detail', data.id]" class="text-purple-600 cursor-pointer bg-white border border-purple-600 w-35 mt-3 h-10 rounded text-center">
+                        <a class="no-underline text-purple-600 font-medium hover:text-purple-800">View Projects</a>
+                        <i class="bi bi-arrow-right ml-2 text-purple-600 hover:text-purple-800"></i>
                     </button>
                 </div>
             </div>

@@ -30,7 +30,7 @@ import { map } from 'rxjs';
     CommonModule,
   ],
   templateUrl: './add-experience.component.html',
-  styleUrls: ['./add-experience.component.css']
+  styleUrls: ['./add-experience.component.css'],
 })
 export class AddExperienceComponent {
   experienceForm: FormGroup;
