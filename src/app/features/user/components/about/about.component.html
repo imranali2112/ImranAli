@@ -1,14 +1,15 @@
 <div class="bg-gradient-to-r from-white text-black via-pink-25 to-green-50 min-h-screen" id="about">
     <div class="mx-auto max-w-6xl px-4 md:px-0 about-Section py-3 lg:py-20 lg:mb-20" data-aos="fade-up">
-       @for(data of aboutList; track data){
-        <div class=" ms-0 me-0 md:ms-10 md:me-10 lg:ms-0 lg:me-0 flex flex-col-reverse justify-between lg:flex-row max-w-7xl mx-auto px-2">
+        @for(data of aboutList; track data){
+        <div
+            class=" ms-0 me-0 md:ms-10 md:me-10 lg:ms-0 lg:me-0 flex flex-col-reverse justify-between lg:flex-row max-w-7xl mx-auto px-2">
             <div class="w-full lg:w-160 flex flex-col justify-between ">
                 <div data-aos="fade-right">
                     <h3 class="text-2xl lg:text-4xl font-bold">Hello, I’m</h3>
                     <h1 class="text-4xl lg:text-6xl font-bold typing-animation mt-3" data-aos="fade-right"
                         data-aos-delay="800">{{ data.name }}</h1>
                 </div>
-                
+
 
                 <div class="mt-3 gap-y-10">
                     <p>{{ data.frontEnd }}</p>
@@ -16,7 +17,7 @@
                     <p class="mt-6">{{ data.education }}</p>
                 </div>
 
- 
+
                 <div class="flex flex-wrap justify-between mt-5 lg:mt-22 gap-5 text-center rounded">
                     <div class="bg-purple-100 w-full md:w-46 h-24 flex flex-col justify-center items-center rounded">
                         <span class="text-2xl font-bold">{{ data.experience }}+ Y.</span>
@@ -37,12 +38,12 @@
                 <img [src]="data.imageUrl" alt="" class="max-w-full max-h-full object-cover rounded" />
             </div>
         </div>
-       }
+        }
     </div>
     <div class="md:ms-11 md:me-8 lg:ms-28 lg:me-25 px-4 md:px-0">
         <div class="mx-auto max-w-6xl mt-10 lg:mt-20">
             @for(item of profileList; track item){
-                <div
+            <div
                 class="flex flex-col justify-between gap-3 lg:flex-row items-center shadow-md bg-white lg:p-15 p-2 rounded relative -mb-8 z-0">
                 <div class="relative">
                     <div class="w-ful sm:w-[442px] h-[450px] lg:h-[468px]  flex justify-center rounded">
@@ -70,23 +71,26 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-130">
-                    <h2 class="md:ms-10 md:me-10 lg:ms-0 lg:me-0 font-bold text-4xl mt-12 lg:mt-0">I am a Frontend Developer specializing in Angular</h2>
-                    <p class="mt-6 md:ms-10 md:me-10 lg:ms-0 lg:me-0">I am a passionate and dedicated Frontend Developer, primarily focused on building
+                    <h2 class="md:ms-10 md:me-10 lg:ms-0 lg:me-0 font-bold text-4xl mt-12 lg:mt-0">I am a Frontend
+                        Developer specializing in Angular</h2>
+                    <p class="mt-6 md:ms-10 md:me-10 lg:ms-0 lg:me-0">I am a passionate and dedicated Frontend
+                        Developer, primarily focused on building
                         dynamic and responsive web applications using Angular. With strong expertise in HTML, CSS,
                         JavaScript, TypeScript, and Tailwind CSS, I create seamless and intuitive user interfaces. My
                         experience also includes REST API integration, i18n localization, and utilizing RxJS for
                         reactive programming to ensure high performance and scalability.</p>
                     <div class="flex justify-start mb-5 gap-5 mt-6 items-center">
-                        <button class="btn bg-purple-600 hover:bg-purple-700 text-white rounded w-30 h-10">My Projects</button>
-                        <button
-                            class="bi bi-download btn text-purple-500 border border-purple-500 rounded w-40 items-center text-center flex justify-center h-10 gap-2">
+                        <button class="btn bg-purple-600 hover:bg-purple-700 text-white rounded w-30 h-10">My
+                            Projects</button>
+
+                        <a href="assets/cv/ImranAliCv.pdf" download
+                            class="bi bi-download btn text-purple-500 border border-purple-500 rounded w-40 items-center text-center flex justify-center h-10 gap-2 cursor-pointer">
                             Download CV
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
             }
-          
         </div>
     </div>
-</div> 
+</div>
